@@ -3,12 +3,12 @@
 
 <nav class="navbar">
     <div class="logo">
-        <a href="home.jsp"><img src="../../images/logo_sem_fundo.png" width="500" height="350"></a> <!-- Link para a página inicial -->
+        <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" width="500" height="350"></a> <!-- Link para a página inicial -->
     </div>
     
     <!-- Barra de Pesquisa -->
     <div class="search-container">
-        <form action="search.jsp" method="get">
+        <form action="<%=request.getContextPath()%>/search.jsp" method="get">
             <input type="text" name="query" placeholder="Pesquisar produtos..." />
             <button type="submit">Pesquisar</button>
         </form>
@@ -16,10 +16,11 @@
 
     <!-- Links de Navegação -->
     <ul class="nav-links">
-        <li><a href="produtos.jsp">Produtos</a></li>
-        <li><a href="montagempc.jsp">Monte seu PC</a></li>
-        <li><a href="chatbot.jsp">PRIMEAI</a></li>
-        <li><a href="login.jsp">Login</a></li>
-        <li><a href="registro.jsp">Registrar</a></li>
+        <li><a href="<%=request.getContextPath()%>/produtos.jsp">Produtos</a></li>
+        <li><a href="<%=request.getContextPath()%>/montagempc.jsp">Monte seu PC</a></li>
+        <li><a href="<%=request.getContextPath()%>/chatbot.jsp">PRIMEAI</a></li>
+        <li><a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
+        <li><a href="<%=request.getContextPath()%>/registro.jsp">Registrar</a></li>
     </ul>
+    <%=request.getContextPath()%>
 </nav>
