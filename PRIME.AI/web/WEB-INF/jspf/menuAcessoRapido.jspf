@@ -1,24 +1,41 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- menu.jspf: Fragmento do menu de navegação com pesquisa e links de acesso rápido -->
-
-<nav class="navbar">
-    <div class="topo">
-
-    </div>
-    <!-- Barra de Pesquisa -->
-    <div class="search-container">
-        <form action="<%=request.getContextPath()%>/search.jsp" method="get">
-            <input type="text" name="query" placeholder="Pesquisar produtos..." />
-            <button type="submit">Pesquisar</button>
-        </form>
-    </div>
-
-    <!-- Links de Navegação -->
-    <ul class="nav-links">
-        <li><a href="<%=request.getContextPath()%>/produtos.jsp">Produtos</a></li>
-        <li><a href="<%=request.getContextPath()%>/montagempc.jsp">Monte seu PC</a></li>
-        <li><a href="<%=request.getContextPath()%>/primeai.jsp">PRIMEAI</a></li>
-        <li><a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
-        <li><a href="<%=request.getContextPath()%>/registro.jsp">Registrar</a></li>
-    </ul>
-</nav>
+<ul class="menu">
+    <li>
+        <a">PEÇAS</a>
+        <ul class="submenu">
+            <li><a>Hardware</a>
+                <ul class="submenu-nested">
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Placas Mãe</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Processadores</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Memórias RAM</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Placas de Vídeo</a></li>
+                </ul>
+            </li>
+            <li><a>Periféricos</a>
+                <ul class="submenu-nested">
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Headsets</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Mouse</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Teclados</a></li>
+                </ul>
+            </li>
+            <li><a>Outros</a>
+                <ul class="submenu-nested">
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Monitores</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Mesas Gamer</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">Cadeiras Gamer</a></li>
+                    <li><a href="<%=request.getContextPath()%>/produtos.jsp">No Break</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<%=request.getContextPath()%>/produtos.jsp">PCS MONTADOS</a>
+    </li>
+    <li>
+        <a href="<%=request.getContextPath()%>/montepc.jsp">MONTE SEU PC</a>
+    </li>
+    <li>
+        <a href="<%=request.getContextPath()%>/primeai.jsp">PRIME GPT</a>
+    </li>
+</ul>

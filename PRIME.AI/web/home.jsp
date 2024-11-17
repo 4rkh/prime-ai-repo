@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prime Tech</title>
         <style>
+
             /* Resetting default margin and padding */
             * {
                 margin: 0;
@@ -121,11 +122,13 @@
                 width: 220px;
                 text-align: center;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: 2px solid black;
             }
 
             .categories-grid div:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+                border: 2px solid black;
             }
 
             .categories-grid img {
@@ -150,8 +153,9 @@
                 padding: 30px 0;
                 font-size: 28px;
                 font-weight: bold;
-                background-color: red; /* Red color */
+                background-color: red;
                 color: white;
+                margin-top: 30px;
                 margin-bottom: 30px;
             }
 
@@ -169,6 +173,8 @@
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
                 text-align: center;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: 1px solid black;
+                background-color: white;
             }
 
             .promotions-grid div:hover {
@@ -181,6 +187,7 @@
                 height: auto;
                 border-radius: 8px;
                 transition: transform 0.3s ease;
+                border: 1px solid black;
             }
 
             .promotions-grid div:hover img {
@@ -191,6 +198,7 @@
                 margin-top: 15px;
                 font-size: 20px;
                 font-weight: bold;
+
             }
 
             .promotions-grid span {
@@ -209,11 +217,11 @@
                 border-radius: 5px;
                 text-decoration: none;
                 margin-top: 15px;
-                transition: background-color 0.3s;
+                transition: background-color 0.15s;
             }
 
             .buy-button:hover {
-                background-color: #cc4c00;
+                background-color: #6d0404;
             }
 
             /* Footer */
@@ -243,8 +251,8 @@
                 }
 
                 .search-bar input {
-                    width: 100%;
-                    margin-top: 10px;
+                    width: 90%;
+                    margin-top: 5px;
                 }
 
                 .categories-menu {
@@ -262,6 +270,99 @@
                     gap: 20px;
                 }
             }
+            .menu-container {
+                width: 80%; /* Define uma largura fixa (ajustável) */
+                margin: 20px auto; /* Centraliza horizontalmente e adiciona espaço superior */
+            }
+            .menu {
+                display: flex;
+                justify-content: center;
+                background-color: #f4f4f4;
+                border: 1px solid black;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .menu li {
+                position: relative;
+            }
+
+            .menu > li {
+                flex: 1;
+                text-align: center;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                background: linear-gradient(to bottom, #e60000, #990000);
+                border: 1px solid black;
+                color: white;
+            }
+
+            .menu a:hover {
+                background: linear-gradient(to bottom, #f4f4f4, #cccccc);
+                color: black;
+            }
+
+            /* Submenu */
+            .submenu {
+                display: none;
+                position: absolute;
+                top: 100%; /* Aparece abaixo do botão pai */
+                left: 0;
+                background-color: #f4f4f4;
+                border: 1px solid black;
+                z-index: 10;
+            }
+
+            .submenu-nested {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%; /* Aparece à direita do botão pai */
+                background-color: #f4f4f4;
+                border: 1px solid black;
+                z-index: 10;
+            }
+
+            .submenu li {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .submenu li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu a, .submenu-nested a {
+                background: linear-gradient(to bottom, #f4f4f4, #cccccc);
+                padding: 10px;
+                text-align: left;
+                color: black;
+            }
+
+            .submenu a:hover, .submenu-nested a:hover {
+                background: linear-gradient(to bottom, #e60000, #990000);
+                color: white;
+            }
+
+            /* Mostra o submenu ao passar o mouse */
+            .menu li:hover .submenu {
+                display: block;
+            }
+
+            /* Mostra o submenu aninhado ao passar o mouse no item pai */
+            .submenu li:hover .submenu-nested {
+                display: block;
+            }
+            .menu, .submenu, .submenu-nested {
+                list-style: none; /* Remove os bullets */
+
+            }
         </style>
     </head>
     <body>
@@ -271,7 +372,10 @@
                 <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
             </div>
             <div class="search-bar">
+                <form action="<%=request.getContextPath()%>/produtos.jsp"">
                 <input type="text" placeholder="Search...">
+                <input type="submit" name="pesquisar" value=NULL>
+                </form>
             </div>
             <div class="auth-links">
                 <a href="register.jsp">Registrar-se</a>
@@ -285,47 +389,42 @@
         </div>
 
         <!-- Menu de Categorias -->
-        <div class="categories-menu">
-            <a href="#">Peças</a>
-            <a href="#">PC's Montados</a>
-            <a href="#">Monte seu PC</a>
-            <a href="#">PRIME AI</a>
-        </div>
+        <div class="menu-container"><%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %></div>
 
+        
         <!-- Categorias -->
         <div class="categories">CATEGORIAS</div>
         <div class="categories-grid">
             <div>
-                <img src="<%=request.getContextPath()%>/images/categoria1.png" alt="Peças">
+                <img src="<%=request.getContextPath()%>/images/pecas.png" alt="Peças">
                 <p>Peças</p>
             </div>
             <div>
-                <img src="<%=request.getContextPath()%>/images/categoria2.png" alt="PCs Montados">
+                <img src="<%=request.getContextPath()%>/images/pc_montado.png" alt="PCs Montados">
                 <p>PCs Montados</p>
             </div>
             <div>
-                <img src="<%=request.getContextPath()%>/images/categoria3.png" alt="Monte seu PC">
+                <img src="<%=request.getContextPath()%>/images/montepc.png" alt="Monte seu PC">
                 <p>Monte seu PC</p>
             </div>
+            <div>
+                <img src="<%=request.getContextPath()%>/images/primeai.png" alt="Prime AI">
+                <p>Prime AI/p>
+            </div>
         </div>
 
-        <!-- Promoções -->
         <div class="promotions">PROMOÇÕES</div>
         <div class="promotions-grid">
-            <% for (int i = 0; i < 12; i++) { %>
+            <% for (int i = 0; i < 12; i++) {%>
             <div>
-                <img src="<%=request.getContextPath()%>/images/produto.png" alt="Produto">
+                <a href="href=<%=request.getContextPath()%>/produtos.jsp"><img src="<%=request.getContextPath()%>/images/icone_produto.png" alt="Produto"></a>
                 <p>GeForce RTX 4060 TI</p>
                 <p>R$ 1449,99 <span>50% OFF</span></p>
-                <a href="#" class="buy-button">Comprar</a>
+                <a href="href=<%=request.getContextPath()%>/produtos.jsp" class="buy-button">Comprar</a>
             </div>
-            <% } %>
+            <% }%>
         </div>
 
-        <!-- Rodapé -->
-        <footer>
-            <p>Prime Tech &copy; 2024. Todos os direitos reservados.</p>
-            <p>CNPJ: 15.368.494/0001-B | Atendimento: de segunda a sexta, das 9h às 18h.</p>
-        </footer>
+        <%@include file="WEB-INF/jspf/rodape.jspf"%>
     </body>
 </html>
