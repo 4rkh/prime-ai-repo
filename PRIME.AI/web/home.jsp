@@ -45,18 +45,9 @@
             }
 
             .logo img {
-                max-width: 150px;
+                max-width: 200px;
                 height: auto;
             }
-
-            .search-bar input {
-                padding: 8px;
-                width: 300px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 16px;
-            }
-
             /* Banner */
             .banner img {
                 width: 100%;
@@ -363,6 +354,52 @@
                 list-style: none; /* Remove os bullets */
 
             }
+.submit-image {
+    background: url('<%=request.getContextPath()%>/images/magnifier.png') no-repeat center center;
+    background-color: white;
+    background-size: contain;
+    border: none; /* Remove borda padrão */
+    width: 25px; /* Largura do ícone da lupa */
+    height: 25px; /* Altura do ícone da lupa */
+    cursor: pointer; /* Adiciona o cursor de "clique" */
+}
+
+.search-container {
+    display: flex; /* Alinha os elementos em linha */
+    align-items: center; /* Alinha verticalmente */
+    width: 50%; /* Ajusta a largura total ou conforme necessário */
+    height: 50px;
+    max-width: 2500px; /* Tamanho máximo da barra de busca */
+    margin: 10px auto; /* Centraliza horizontalmente */
+    border: 1px solid #ccc; /* Borda da barra de busca */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Fundo branco */
+    padding: 5px 10px; /* Ajusta o espaçamento interno */
+}
+.search-input {
+    flex-grow: 1; /* Faz a barra de busca preencher o restante do espaço disponível */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px;
+    text-align: left;
+}
+
+form {
+    display: flex;
+    width: 100%; /* Garante que o formulário ocupe toda a largura */
+    align-items: center; /* Alinha verticalmente os itens dentro do form */
+}
+
+form input[type="text"] {
+    flex-grow: 1; /* Barra de busca ocupa o espaço restante */
+    margin-right: 10px; /* Espaçamento entre o campo de texto e o botão */
+}
+
+form input[type="submit"] {
+    width: 35px; /* Largura do botão da lupa */
+    height: 35px; /* Altura do botão da lupa */
+}
         </style>
     </head>
     <body>
@@ -371,10 +408,10 @@
             <div class="logo">
                 <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
             </div>
-            <div class="search-bar">
+            <div class="search-container">
                 <form action="<%=request.getContextPath()%>/produtos.jsp"">
-                <input type="text" placeholder="Search...">
-                <input type="submit" name="pesquisar" value=NULL>
+                        <input type="text" class="search-input" placeholder="Search...">
+                        <input type="submit" name="pesquisar" class="submit-image" value="">
                 </form>
             </div>
             <div class="auth-links">
@@ -409,7 +446,7 @@
             </div>
             <div>
                 <img src="<%=request.getContextPath()%>/images/primeai.png" alt="Prime AI">
-                <p>Prime AI/p>
+                <p>Prime AI</p>
             </div>
         </div>
 

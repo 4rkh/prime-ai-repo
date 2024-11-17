@@ -2,7 +2,7 @@
 <!-- menu.jspf: Fragmento do menu de navegação com pesquisa e links de acesso rápido -->
 <ul class="menu">
     <li>
-        <a">PEÇAS</a>
+        <a>PEÇAS</a>
         <ul class="submenu">
             <li><a>Hardware</a>
                 <ul class="submenu-nested">
