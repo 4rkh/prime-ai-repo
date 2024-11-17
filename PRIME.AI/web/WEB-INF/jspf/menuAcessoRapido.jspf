@@ -2,10 +2,9 @@
 <!-- menu.jspf: Fragmento do menu de navegação com pesquisa e links de acesso rápido -->
 
 <nav class="navbar">
-    <div class="logo">
-        <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" width="500" height="350"></a> <!-- Link para a página inicial -->
+    <div class="topo">
+
     </div>
-    
     <!-- Barra de Pesquisa -->
     <div class="search-container">
         <form action="<%=request.getContextPath()%>/search.jsp" method="get">
@@ -18,9 +17,8 @@
     <ul class="nav-links">
         <li><a href="<%=request.getContextPath()%>/produtos.jsp">Produtos</a></li>
         <li><a href="<%=request.getContextPath()%>/montagempc.jsp">Monte seu PC</a></li>
-        <li><a href="<%=request.getContextPath()%>/chatbot.jsp">PRIMEAI</a></li>
+        <li><a href="<%=request.getContextPath()%>/primeai.jsp">PRIMEAI</a></li>
         <li><a href="<%=request.getContextPath()%>/login.jsp">Login</a></li>
         <li><a href="<%=request.getContextPath()%>/registro.jsp">Registrar</a></li>
     </ul>
-    <%=request.getContextPath()%>
 </nav>
