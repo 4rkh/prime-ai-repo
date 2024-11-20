@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,9 +13,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Arthu
+ * @author Nicolete
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/new"})
+@WebServlet(urlPatterns = {"/NewServlet"})
 public class NewServlet extends HttpServlet {
 
     /**
