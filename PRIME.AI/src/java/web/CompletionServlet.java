@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+package web;
 
+import ai.DevOpenAI;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -10,13 +12,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
- * @author Nicolete
+ * @author rlarg
  */
-@WebServlet(urlPatterns = {"/NewServlet"})
-public class NewServlet extends HttpServlet {
+@WebServlet(name = "CompletionServlet", urlPatterns = {"/completion"})
+public class CompletionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,18 +33,27 @@ public class NewServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            if(request.getParameter("prompt")!=null){
+                try{
+                    String prompt = request.getParameter("prompt");
+                    JSONObject data = new JSONObject();
+                            data.put("model", "gpt-3.5-turbo");
+                            data.put("messages", new JSONArray()
+                                .put(new JSONObject()
+                                    .put("role", "user")
+                                    .put("content", prompt)
+                                )
+                            );
+                    data.put("max_tokens", 4000);
+                    data.put("temperature", 1.0);
+                    JSONObject completion = DevOpenAI.getCompletion(data);
+                    out.print(completion.toString());
+                }catch(Exception ex){
+                    out.print(new JSONObject("error", ex.getMessage()).toString());
+                }
+            }
         }
     }
 
