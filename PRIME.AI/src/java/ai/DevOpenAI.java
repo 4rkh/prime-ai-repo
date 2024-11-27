@@ -19,7 +19,7 @@ import org.json.JSONObject;
  * @author rlarg
  */
 public class DevOpenAI {
-    private static final String API_KEY = "";
+    private static final String API_KEY = System.getenv("");
     
     private static final HttpClient httpClient = createHttpClient();
     
