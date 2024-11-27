@@ -12,6 +12,7 @@
             </button>
         </form>
     </div>
+            <div><button class="cart-button"><img src="images/cart.png" href="carrinho.jsp"/></button></div>
     <div class="auth-links">
         <a href="registro.jsp">Registrar-se</a>
         <a href="login.jsp">Login</a>

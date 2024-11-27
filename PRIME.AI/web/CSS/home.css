@@ -51,32 +51,6 @@ body {
 .banner img:hover {
     transform: scale(1.05);
 }
-
-/* Menu de Categorias abaixo do banner */
-.categories-menu {
-    display: flex;
-    justify-content: center;
-    background-color: #f8f8f8;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.categories-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    margin: 0 20px;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.categories-menu a:hover {
-    background-color: #eaeaea;
-    color: red;
-}
-
 /* Categorias Section */
 .categories {
     text-align: center;
@@ -252,6 +226,7 @@ footer a:hover {
         gap: 20px;
     }
 }
+/* Menu de Categorias abaixo do banner */
 .menu-container {
     width: 80%; /* Define uma largura fixa (ajustável) */
     margin: 20px auto; /* Centraliza horizontalmente e adiciona espaço superior */
