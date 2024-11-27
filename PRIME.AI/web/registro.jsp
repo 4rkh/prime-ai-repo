@@ -1,88 +1,92 @@
-<%-- 
-    Document   : newjsp
-    Created on : 12 de nov. de 2024, 20:26:38
-    Author     : Nicolete
---%>
-
-<%@page import="com.sun.tools.rngom.ast.builder.Include"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
-            /* Configura o layout principal com Grid */
-            .layout {
-                display: grid;
-                grid-template-areas:
-                    "logo banner"
-                    "menu content";
-                grid-template-rows: auto 1fr;
-                grid-template-columns: auto 1fr;
-                height: 100vh; /* Altura da tela inteira */
-                gap: 10px;
-            }
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Prime Tech</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            align-content: center;
+            background-color: #f2f2f2;
+        }
 
-            /* Áreas específicas */
-            .logo {
-                grid-area: logo;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-            }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-            .banner {
-                grid-area: banner;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 10px;
-                background-color: #f4f4f4; /* Cor de fundo para o banner */
-            }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-            .menu {
-                grid-area: menu;
-                padding: 20px;
-                background-color: #eaeaea; /* Cor de fundo para o menu */
-                height: calc(100vh - 100px); /* Altura dinâmica para ajustar abaixo do logo */
-                overflow-y: auto; /* Rolagem se necessário */
-            }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-            .content {
-                grid-area: content;
-                padding: 20px;
-            }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-            /* Estilização das imagens */
-            .logo img {
-                max-width: 290px;
-                height: auto;
-            }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-            .banner img {
-                height: 210px;
-                width: auto;
-                
-            }
-            h1 {
-                margin: 0;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="layout">
-            <%@include file="WEB-INF/jspf/logo_banner.jspf" %>
-            <div class="menu">
-                <%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %>
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #b71c1c;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="CSS/registro.css"/>
+</head>
+<body>
+    <div><%@include file="WEB-INF/jspf/menuSuperior.jspf"%></div>
+    <div class="container">
+    <h2>Registro</h2>
+        
+        <form action="RegisterServlet" method="post">
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login" required>
             </div>
-
-            <!-- Conteúdo principal à direita do menu -->
-            <div class="content">
-                <h1>Home</h1>
-                <p>Imagens de produtos</p>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div> 
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
             </div>
-        </div>
-    </body>
+            <div class="form-group">
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Prime Tech � 2024. Todos os direitos reservados.</p>
+        <p>CNPJ: 15.368.494/0001-B | Atendimento: de segunda a sexta, das 9h �s 18h.</p>
+    </footer>
+</body>
 </html>

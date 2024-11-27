@@ -1,0 +1,283 @@
+/* Resetting default margin and padding */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ababab;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Top bar - Menu */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.top-bar a:hover {
+    color: red;
+}
+
+.logo img {
+    max-width: 200px;
+    height: auto;
+}
+/* Banner */
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+.banner img:hover {
+    transform: scale(1.05);
+}
+
+/* Menu de Categorias abaixo do banner */
+.categories-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categories-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin: 0 20px;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categories-menu a:hover {
+    background-color: #eaeaea;
+    color: red;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #ff6600;
+}
+
+/* Responsivity for smaller devices */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar input {
+        width: 90%;
+        margin-top: 5px;
+    }
+
+    .categories-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .categories-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .promotions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+.menu-container {
+    width: 80%; /* Define uma largura fixa (ajustável) */
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona espaço superior */
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu > li {
+    flex: 1;
+    text-align: center;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #e60000, #990000);
+    border: 1px solid black;
+    color: white;
+}
+
+.menu a:hover {
+    background: linear-gradient(to bottom, #f4f4f4, #cccccc);
+    color: black;
+}
+
+/* Submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Aparece abaixo do botão pai */
+    left: 0;
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    z-index: 10;
+}
+
+.submenu-nested {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Aparece à direita do botão pai */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    z-index: 10;
+}
+
+.submenu li {
+    border-bottom: 1px solid #ccc;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a, .submenu-nested a {
+    background: linear-gradient(to bottom, #f4f4f4, #cccccc);
+    padding: 10px;
+    text-align: left;
+    color: black;
+}
+
+.submenu a:hover, .submenu-nested a:hover {
+    background: linear-gradient(to bottom, #e60000, #990000);
+    color: white;
+}
+
+/* Mostra o submenu ao passar o mouse */
+.menu li:hover .submenu {
+    display: block;
+}
+
+/* Mostra o submenu aninhado ao passar o mouse no item pai */
+.submenu li:hover .submenu-nested {
+    display: block;
+}
+.menu, .submenu, .submenu-nested {
+    list-style: none; /* Remove os bullets */
+
+}
+.search-form {
+    display: flex;
+    width: 100%; /* Garante que o formulário ocupe toda a largura */
+    align-items: center; /* Alinha verticalmente os itens dentro do form */
+}
+
+.search-input{
+    flex-grow: 1; /* Barra de busca ocupa o espaço restante */
+    margin-right: 10px; /* Espaçamento entre o campo de texto e o botão */
+}
+/* Estilo para o container da barra de busca */
+.search-container {
+    display: flex; /* Alinha os elementos horizontalmente */
+    align-items: center;
+    width: 50%; /* Ajusta a largura da barra de pesquisa */
+    max-width: 600px; /* Define um tamanho máximo */
+    height: 50px;
+    margin: 10px auto; /* Centraliza horizontalmente */
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ccc; /* Borda da barra de busca */
+    border-radius: 25px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que os cantos fiquem arredondados */
+}
+
+/* Campo de entrada de texto */
+.search-input {
+    flex-grow: 1; /* Faz o campo de texto ocupar o máximo de espaço */
+    padding: 10px 15px;
+    border: none; /* Remove a borda padrão */
+    font-size: 16px;
+    outline: none; /* Remove o contorno ao focar */
+    border-radius: 15px 0 0 15px; /* Bordas arredondadas apenas na esquerda */
+}
+
+/* Botão com a imagem da lupa */
+.search-button {
+    background: none; /* Remove o fundo padrão do botão */
+    border: none; /* Remove borda padrão */
+    padding: 0 10px; /* Ajusta o espaçamento */
+    cursor: pointer; /* Adiciona cursor de clique */
+    display: flex; /* Alinha a imagem da lupa centralmente */
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Fundo branco */
+}
+
+/* Efeito no botão ao passar o mouse */
+.submit-button :hover {
+    background-color: red; /* Cor de fundo ao passar o mouse */
+}
+.search-button img {
+    width: 20px; /* Ajuste o tamanho da lupa */
+    height: 20px;
+    display: block; /* Garante alinhamento consistente */
+    border: none; /* Remove qualquer borda ao redor da imagem */
+    outline: none; /* Remove qualquer contorno ao focar */
+}
+.search-button:focus {
+    outline: none; /* Remove o contorno do botão ao focar */
+}
+
+/* Remove contorno ao clicar na imagem */
+.search-button img:focus {
+    outline: none; /* Garante que a imagem também não receba contorno */
+}
