@@ -11,78 +11,60 @@
     <head>
         <title>Home</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
-            /* Configura o layout principal com Grid */
-            .layout {
-                display: grid;
-                grid-template-areas:
-                    "logo banner"
-                    "menu content";
-                grid-template-rows: auto 1fr;
-                grid-template-columns: auto 1fr;
-                height: 100vh; /* Altura da tela inteira */
-                gap: 10px;
-            }
 
-            /* Áreas específicas */
-            .logo {
-                grid-area: logo;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-            }
-
-            .banner {
-                grid-area: banner;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 10px;
-                background-color: #f4f4f4; /* Cor de fundo para o banner */
-            }
-
-            .menu {
-                grid-area: menu;
-                padding: 20px;
-                background-color: #eaeaea; /* Cor de fundo para o menu */
-                height: calc(100vh - 100px); /* Altura dinâmica para ajustar abaixo do logo */
-                overflow-y: auto; /* Rolagem se necessário */
-            }
-
-            .content {
-                grid-area: content;
-                padding: 20px;
-            }
-
-            /* Estilização das imagens */
-            .logo img {
-                max-width: 290px;
-                height: auto;
-            }
-
-            .banner img {
-                height: 210px;
-                width: auto;
-                
-            }
-            h1 {
-                margin: 0;
-                text-align: center;
-            }
-        </style>
     </head>
     <body>
-        <div class="layout">
-            <%@include file="WEB-INF/jspf/logo_banner.jspf" %>
-            <div class="menu">
-                <%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %>
-            </div>
+        <div>
+            <%@include file="WEB-INF/jspf/menuTeste.jspf" %>
+        </div>
+        <div style="width: 80%; margin: 0 auto; font-family: Arial, sans-serif;">
+            <h1 style="text-align: center;">Monte seu PC</h1>
 
-            <!-- Conteúdo principal à direita do menu -->
-            <div class="content">
-                <h1>Home</h1>
-                <p>Imagens de produtos</p>
+            <!-- Dropdowns com carrossel -->
+            <% String[] categorias = {"Processador", "Placa-Mãe", "Placa de Vídeo", "Memória RAM", "Refrigeração", "Fonte", "Gabinete", "Armazenamento", "Fan", "Monitor", "Headset", "Mouse", "Teclado", "Mesa", "Cadeira", "Nobreak"}; %>
+            <% for (String categoria : categorias) {%>
+            <div style="margin-bottom: 20px;">
+                <!-- Botão do Dropdown -->
+                <button onclick="toggleDropdown('<%= categoria%>')" style="width: 100%; text-align: left; background-color: #f0f0f0; border: 1px solid #ddd; padding: 10px; border-radius: 5px; cursor: pointer;">
+                    <%= categoria%> +
+                </button>
+
+                <!-- Conteúdo do Dropdown -->
+                <div id="<%= categoria%>" style="display: none; border: 1px solid #ddd; border-top: none; padding: 10px; background-color: #f9f9f9;">
+                    <div style="display: flex; overflow-x: auto; gap: 15px; padding: 10px;">
+                        <!-- Item do Carrossel -->
+                        <% for (int i = 0; i < 15; i++) { %>
+                        <div style="text-align: center; min-width: 150px;">
+                            <img src="images/icone_produto.png" alt="GPU" style="width: 100px; height: auto;">
+                            <p>GEFORCE RTX 4060</p>
+                            <p>R$ 2899,99</p>
+                            <button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Adicionar</button>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
+            <% }%>
+
+            <!-- Total -->
+            <div style="margin-top: 20px; text-align: right;">
+                <p><strong>Total: R$38.899,00</strong></p>
+                <button style="background-color: green; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Comprar</button>
+            </div>
+        </div>
+
+        <script>
+            function toggleDropdown(categoria) {
+                const dropdown = document.getElementById(categoria);
+                if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                    dropdown.style.display = "block";
+                } else {
+                    dropdown.style.display = "none";
+                }
+            }
+        </script>
+        <div>
+            <%@include file="WEB-INF/jspf/rodape.jspf" %>
         </div>
     </body>
 </html>
