@@ -44,14 +44,11 @@
         <div><%= request.getAttribute("completion")%></div>
         <hr/>
         <% }%>
-
+        
         Nova Pergunta:<br/>
         <form>
             <input type="text" name="prompt" size="100"/>
             <input type="submit" name="invoke" value="Enviar"/>
         </form>
-        <div>
-            <%@include file="WEB-INF/jspf/rodape.jspf" %>
-        </div>
     </body>
 </html>
