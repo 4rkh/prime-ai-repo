@@ -249,7 +249,7 @@
             <a href="<%=request.getContextPath()%>/produtos.jsp">PCS MONTADOS</a>
         </li>
         <li>
-            <a href="<%=request.getContextPath()%>/montagempc.jsp">MONTE SEU PC</a>
+            <a href="<%=request.getContextPath()%>/montepc.jsp">MONTE SEU PC</a>
         </li>
         <li>
             <a href="<%=request.getContextPath()%>/primeai.jsp">PRIME GPT</a>
