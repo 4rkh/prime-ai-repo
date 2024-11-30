@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+/PRIME.AI/nbproject/private/
+/PRIME.AI/build/
+/PRIME.AI/dist/
+*.xml
+*.properties
+=======
 Compiled class file
 *.class
 
@@ -34,3 +41,4 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 /PRIME.AI/nbproject/private/
+>>>>>>> Stashed changes
