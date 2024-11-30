@@ -14,13 +14,15 @@
         <link rel="stylesheet" type="text/css" href="CSS/home.css"/>
     </head>
     <body>
-        <!-- Menu superior -->
-        <div><%@include file="WEB-INF/jspf/menuSuperior.jspf" %></div>
-        <!-- Menu de Categorias -->
-        <div class="menu-container"><%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %></div>
+        <main>
+            <!-- Menu superior -->
+            <div><%@include file="WEB-INF/jspf/menuSuperior.jspf" %></div>
+            <!-- Menu de Categorias -->
+            <div class="menu-container"><%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %></div>
 
-        <h1>Titulo</h1>
-
+            <h1>Titulo</h1>
+        </main>
         <%@include file="WEB-INF/jspf/rodape.jspf"%>
     </body>
+
 </html>

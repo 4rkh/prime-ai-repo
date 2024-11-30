@@ -21,11 +21,48 @@ public class DatabaseUtil {
                     return rs.getString(coluna);
                 }
             }catch (Exception quer){
-                System.out.println("Falha na querry fds");//asdaasd
+                System.out.println("Falha na querry F");
             }
         }catch (Exception ex){
             System.out.println("Falha na conexão");
         }
         return null; // Retorna null se nada for encontrado
     }
+
+    public static String buscarLogin(String login) throws Exception {
+        String query = "SELECT usuarioLogin FROM usuarios WHERE loginUsuario =" + login;
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("loginUsuario");
+                }
+            }catch (Exception quer){
+                System.out.println("Falha na querry F");
+            }
+        }catch (Exception ex){
+            System.out.println("Falha na conexão");
+        }
+        return null; // Retorna null se nada for encontrado
+    }
+    
+    public static String buscarEmail(String login,String resposta) throws Exception {
+        String query = "SELECT usuarioLogin FROM usuarios WHERE emailUsuario =" + login;
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString(resposta);
+                }
+            }catch (Exception quer){
+                System.out.println("Falha na querry F");
+            }
+        }catch (Exception ex){
+            System.out.println("Falha na conexão");
+        }
+        return null; // Retorna null se nada for encontrado
+    }
+    
 }

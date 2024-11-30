@@ -1,5 +1,24 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<style>
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        color: #ff6600;
+    }
+</style>
 <br>
 <footer>
     <p>Prime Tech &copy; 2024. Todos os direitos reservados.</p>
