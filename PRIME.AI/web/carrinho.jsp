@@ -16,9 +16,7 @@
     <body>
         <main>
             <!-- Menu superior -->
-            <div><%@include file="WEB-INF/jspf/menuSuperior.jspf" %></div>
-            <!-- Menu de Categorias -->
-            <div class="menu-container"><%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %></div>
+            <div><%@include file="WEB-INF/jspf/menuUnido.jspf" %></div>
 
             <h1>Titulo</h1>
         </main>
