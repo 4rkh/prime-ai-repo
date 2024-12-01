@@ -1,5 +1,5 @@
 <%@page import="ai.DevOpenAI"%>
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     if (request.getParameter("invoke") != null) {
@@ -40,8 +40,6 @@
             h1 {
                 color: #d32f2f;
             }
-
-
             textarea {
                 width: 100%;
                 height: 100px;
@@ -84,7 +82,7 @@
         <%@include file="WEB-INF/jspf/menuTeste.jspf" %>
         <main>
             <div class="chat-container">
-                <h1>PRIME.AI</h1>
+                <h1>PRIME AI</h1>
                 <% if (request.getAttribute("error") != null) {%>
                 <div style="color: red;">ERRO: <%= request.getAttribute("error")%></div>
                 <hr/>
