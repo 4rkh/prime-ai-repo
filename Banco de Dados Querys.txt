@@ -1,0 +1,17 @@
+CREATE TABLE usuarios(
+    idUsuario INT GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMARY KEY,
+    loginUsuario VARCHAR(50),
+    senhaUsuario VARCHAR(50),
+    emailUsuario VARCHAR(100)
+);
+
+CREATE TABLE produtos(
+	idProduto INT PRIMARY KEY,
+	nomeProduto VARCHAR(100),
+	valorProduto NUMERIC(11,2),
+	imgProduto VARCHAR(100)	
+);
+
+INSERT INTO produtos VALUES(1,'RTX 4060 OC GIGABYTE',1689.99,'rtx3060.png');
+INSERT INTO produtos VALUES(2,'PC Ryzen 7900X 32GB RTX4080 SSD1TB',7568.99,'pc_montado_2.png');
+	
