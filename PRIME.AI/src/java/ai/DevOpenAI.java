@@ -19,7 +19,7 @@ import org.json.JSONObject;
  * @author rlarg
  */
 public class DevOpenAI {
-    private static final String API_KEY = System.getenv("");
+    private static final String API_KEY = System.getenv("GroqKey");
     
     private static final HttpClient httpClient = createHttpClient();
     
@@ -46,18 +46,18 @@ public class DevOpenAI {
     
     public static String getCompletion(String prompt) throws Exception {
         JSONObject data = new JSONObject();
-        data.put("model", "gpt-3.5-turbo");
+        data.put("model", "llama-3.1-70b-versatile");
         data.put("messages", new JSONArray()
                 .put(new JSONObject()
                         .put("role", "user")
                         .put("content", prompt)
                 )
         );
-        data.put("max_tokens", 4000);
+        data.put("max_tokens", 8000);
         data.put("temperature", 1.0);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.openai.com/v1/chat/completions"))
+                .uri(new URI("https://api.groq.com/openai/v1/chat/completions"))
                 .header("Authorization", "Bearer " + API_KEY)
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(data.toString()))
@@ -78,7 +78,7 @@ public class DevOpenAI {
     
     public static JSONObject getCompletion(JSONObject data) throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://api.openai.com/v1/chat/completions"))
+                .uri(new URI("https://api.groq.com/openai/v1/chat/completions"))
                 .header("Authorization", "Bearer " + API_KEY)
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(data.toString()))

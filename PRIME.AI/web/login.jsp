@@ -1,88 +1,96 @@
-<%-- 
-    Document   : newjsp
-    Created on : 12 de nov. de 2024, 20:26:38
-    Author     : Nicolete
---%>
-
-<%@page import="com.sun.tools.rngom.ast.builder.Include"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<%
+    String check = (String) session.getAttribute("check");
+%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <style>
-            /* Configura o layout principal com Grid */
-            .layout {
-                display: grid;
-                grid-template-areas:
-                    "logo banner"
-                    "menu content";
-                grid-template-rows: auto 1fr;
-                grid-template-columns: auto 1fr;
-                height: 100vh; /* Altura da tela inteira */
-                gap: 10px;
-            }
-
-            /* Áreas específicas */
-            .logo {
-                grid-area: logo;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-            }
-
-            .banner {
-                grid-area: banner;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 10px;
-                background-color: #f4f4f4; /* Cor de fundo para o banner */
-            }
-
-            .menu {
-                grid-area: menu;
+            .container {
+                max-width: 600px;
+                margin: 50px auto;
+                background-color: #fff;
                 padding: 20px;
-                background-color: #eaeaea; /* Cor de fundo para o menu */
-                height: calc(100vh - 100px); /* Altura dinâmica para ajustar abaixo do logo */
-                overflow-y: auto; /* Rolagem se necessário */
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
 
-            .content {
-                grid-area: content;
-                padding: 20px;
+            .container h2 {
+                text-align: center;
+                margin-bottom: 20px;
             }
 
-            /* Estilização das imagens */
-            .logo img {
-                max-width: 290px;
-                height: auto;
+            .form-group {
+                margin-bottom: 15px;
             }
 
-            .banner img {
-                height: 210px;
-                width: auto;
-                
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
             }
-            h1 {
-                margin: 0;
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .form-group button {
+                width: 100%;
+                padding: 10px;
+                background-color: #d32f2f;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .form-group button:hover {
+                background-color: #b71c1c;
+            }
+
+            .error {
+                color: red;
+                font-size: 14px;
                 text-align: center;
             }
         </style>
+        <link rel="stylesheet" type="text/css" href="CSS/registro.css"/>
     </head>
     <body>
-        <div class="layout">
-            <%@include file="WEB-INF/jspf/logo_banner.jspf" %>
-            <div class="menu">
-                <%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %>
-            </div>
+        <div><%@include file="WEB-INF/jspf/menuSuperior.jspf"%></div>
+        <main>
+            <div class="container">
+                <h2>Login</h2>
+                
+                <form action="LoginServlet" method="post">
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+                    <br> <br>
+                    <div class="form-group">
+                        <button type="submit">Entrar</button>
+                    </div>
 
-            <!-- Conteúdo principal à direita do menu -->
-            <div class="content">
-                <h1>Login</h1>
-                <h3>Imagens de produtos</h3><input type="text">
+                    <% if ("error".equals(check)) { %>
+                    <div class="error">
+                        Login ou senha inválidos. Tente novamente.
+                    </div>
+                    <% }%>
+                </form>
             </div>
-        </div>
+        </main>
+                 <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>

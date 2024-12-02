@@ -1,14 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="DB_Package.DatabaseUtil"%>
-<% DatabaseUtil busca = new DatabaseUtil();
+<%@page import="DB_Package.OperacoesBD"%>
+<% OperacoesBD busca = new OperacoesBD();
     String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
     String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
     String imgProd1 = busca.buscarAtributo("produtos", "imagemProduto", "idProduto", 1);
     String nomeProd2 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 2);
     String valorProd2 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 2);
     String imgProd2 = busca.buscarAtributo("produtos", "imagemProduto", "idProduto", 2);
-
-
 %>
 
 <!DOCTYPE html>

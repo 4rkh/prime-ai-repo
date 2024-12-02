@@ -196,6 +196,32 @@
     .search-button img:focus {
         outline: none; /* Garante que a imagem também não receba contorno */
     }
+.cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px; 
+    background-color: #cccccc; 
+    color: white;
+    border-radius: 50%; 
+    text-decoration: none;
+    transition: background-color 0.15s;
+    border: 5px; 
+    cursor: pointer; 
+}
+
+.cart-button img {
+    width: 60%; 
+    height: auto;
+    display: block; 
+    border: none;
+    outline: none;
+}
+
+.cart-button:hover {
+    background-color: #6d0404; 
+}
 </style>
 <div class="top-bar">
     <div class="logo">
@@ -209,7 +235,7 @@
             </button>
         </form>
     </div>
-    <div><button class="cart-button"><img src="images/cart.png" href="carrinho.jsp"/></button></div>
+            <form action="carrinho.jsp"><button class="cart-button" type="submit"><img src="images/cart.png" /></button></form>
     <div class="auth-links">
         <a href="registro.jsp">Registrar-se</a>
         <a href="login.jsp">Login</a>
