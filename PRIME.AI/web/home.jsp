@@ -20,7 +20,7 @@
     <body>
 
         <!-- Menu superior -->
-        <div><%@include file="WEB-INF/jspf/menuSuperior.jspf" %></div>
+        <%@include file="WEB-INF/jspf/menuSuperior.jspf" %>
         <!-- Banner -->
         <div class="banner">
             <img src="<%=request.getContextPath()%>/images/banner.png" alt="Banner">

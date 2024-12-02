@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/processarRegistro.jsp</file>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/home.jsp</file>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/src/java/DB_Package/OperacoesBD.java</file>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/login.jsp</file>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/registro.jsp</file>
+            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/WEB-INF/jspf/menuUnido.jspf</file>
+            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/CSS/home.css</file>
+            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/nbproject/build-impl.xml</file>
             <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/WEB-INF/jspf/menuSuperior.jspf</file>
-            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/src/java/ai/DevOpenAI.java</file>
+            <file>file:/D:/Programação/TrabalhoPOO/Prime%20AI/prime-ai-repo/PRIME.AI/web/WEB-INF/jspf/menuAcessoRapido.jspf</file>
         </group>
     </open-files>
 </project-private>

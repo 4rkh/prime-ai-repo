@@ -1,5 +1,32 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<style>
+.cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px; 
+    background-color: #cccccc; 
+    color: white;
+    border-radius: 50%; 
+    text-decoration: none;
+    transition: background-color 0.15s;
+    border: 5px; 
+    cursor: pointer; 
+}
+
+.cart-button img {
+    width: 60%; 
+    height: auto;
+    display: block; 
+    border: none;
+    outline: none;
+}
+
+.cart-button:hover {
+    background-color: #6d0404; 
+}</style>
 <div class="top-bar">
     <div class="logo">
         <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
@@ -12,7 +39,7 @@
             </button>
         </form>
     </div>
-            <form action="carrinho.jsp"> <button class="buy-button" type="submit"><img src="images/cart.png" /></button></form>
+            <form action="carrinho.jsp"> <button class="cart-button" type="submit"><img src="images/cart.png" /></button></form>
     <div class="auth-links">
         <a href="registro.jsp">Registrar-se</a>
         <a href="login.jsp">Login</a>
