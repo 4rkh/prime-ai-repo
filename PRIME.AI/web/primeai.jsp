@@ -81,7 +81,7 @@
     </head>
 
     <body>
-        <%@include file="WEB-INF/jspf/menuTeste.jspf" %>
+        <%@include file="WEB-INF/jspf/menuUnido.jspf" %>
         <main>
             <div class="chat-container">
                 <h1>PRIME.AI</h1>
