@@ -1,10 +1,15 @@
 <%@page import="ai.DevOpenAI"%>
+<%@page import="DB_Package.OperacoesBD" %>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%
     if (request.getParameter("invoke") != null) {
         try {
-            String prompt = "ola";
+            String prompt = OperacoesBD.obterTabela("benchmark") + OperacoesBD.obterTabela("produtos") + "Segundo as tabelas acima qual o id do produto que mais se aproxima de '"
+            + request.getParameter("jogo") +"' , '"
+            + request.getParameter("resolucao") +"' , '"
+            + request.getParameter("qualidade") +"' , '"
+            + request.getParameter("fps") +"' , responda SOMENTE com o link do produto transformado em um hyperlink e 'Este é o Computador que você precisa para rodar "+request.getParameter("jogo")+" nas configurações especificadas.'e não uso o ID do produto, use o nome do produto na tabela 'produtos'";
             String completion = DevOpenAI.getCompletion(prompt);
             request.setAttribute("completion", completion);
         } catch (Exception ex) {
@@ -66,7 +71,22 @@
             aibutton:hover {
                 background-color: #b71c1c;
             }
+            .prompt-button {
+                display: inline-block;
+                padding: 12px 25px;
+                background-color: red; /* Red color */
+                color: white;
+                text-transform: uppercase;
+                font-weight: bold;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-top: 15px;
+                transition: background-color 0.15s;
+            }
 
+            .prompt-button:hover {
+                background-color: #6d0404;
+            }
             .output {
                 margin-top: 20px;
                 background-color: #f9f9f9;
@@ -74,7 +94,55 @@
                 border: 1px solid #ddd;
                 border-radius: 5px;
                 text-align: left;
-                
+
+            }
+        </style>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+
+            form.selec-prompt {
+                width: 300px;
+                margin: auto;
+            }
+
+            strong {
+                display: inline-block;
+                width: 100px; /* Largura fixa para o rótulo */
+                text-align: right;
+                margin-right: 10px;
+            }
+
+            select, input[type="text"] {
+                width: 180px; /* Tamanho igual para todos os campos */
+                padding: 5px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .buy-button {
+                margin-top: 10px;
+                padding: 8px 12px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .buy-button:hover {
+                background-color: #45a049;
+            }
+
+            /* Alinhamento */
+            form.selec-prompt div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
             }
         </style>
         <link rel="stylesheet" type="text/css" href="CSS/home.css"/>
@@ -96,10 +164,43 @@
                 <hr/>
                 <% }%>
 
-                <h3>Nova Pergunta:</h3>
-                <form method="get">
-                    <textarea name="prompt" placeholder="Digite sua pergunta aqui..." required></textarea>
-                    <button type="submit" class="buy-button" name="invoke">Enviar</button>
+                <h3>Selecione o jogo, a resolução , qualidade e o FPS desejado qua a nossa IA te indicará o PC que você precisa para rodar estas especificações.</h3><br>
+                <form class="selec-prompt" method="get">
+                    <div>
+                        <strong>Jogo</strong>
+                        <select name="jogo" id="jogo" required="">
+                            <option value="" disabled selected>Escolha um jogo</option>
+                            <option value="Fortinite">Fortinite</option>
+                            <option value="God of War">God of War</option>
+                            <option value="GTA VI">GTA VI</option>
+                            <option value="League of Legends">League of Legends</option>
+                            <option value="Terraria">Terraria</option>
+                        </select>
+                    </div>
+                    <div>
+                        <strong>Resolução</strong>
+                        <select name="resolucao" id="resolucao" required="">
+                            <option value="" disabled selected>Escolha a resolução</option>
+                            <option value="FullHD">FullHD</option>
+                            <option value="2.5K">2.5K</option>
+                            <option value="4K">4K</option>
+                        </select>
+                    </div>
+                    <div>
+                        <strong>Qualidade</strong>
+                        <select name="qualidade" id="qualidade" required="">
+                            <option value="" disabled selected>Escolha a qualidade</option>
+                            <option value="Baixa">Baixa</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Ultra">Ultra</option>
+                        </select>
+                    </div>
+                    <div>
+                        <strong>FPS</strong>
+                        <input type="text" name="fps" required="" placeholder="Digite o FPS...">
+                    </div>
+                    <button type="submit" class="prompt-button" name="invoke">Enviar</button>
                 </form>
             </div>
         </main>

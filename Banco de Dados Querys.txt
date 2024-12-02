@@ -10,19 +10,19 @@ idProduto INT GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMAR
 nomeProduto VARCHAR(100),
 valorProduto NUMERIC(11,2),
 imgProduto VARCHAR(100),
-linkProd VARCHAR(100),
+linkProduto VARCHAR(100)
 );
 
 CREATE TABLE carrinho(
     idProduto INT,
     idUsuario INT,
     quantProduto NUMERIC (2),
-    valorProduto NUMERIC (11,2),
     CONSTRAINT produtofk FOREIGN KEY (idProduto) REFERENCES produtos (idProduto),
     CONSTRAINT usuariofk FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario)
 );
 
 CREATE TABLE benchmark(
+	idBench INT GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMARY KEY,
 	idProduto INT,
 	jogoBench VARCHAR(50),
 	resolucaoBench VARCHAR(20),
@@ -34,21 +34,31 @@ CREATE TABLE benchmark(
 INSERT INTO usuarios(loginUsuario,senhaUsuario,emailUsuario) VALUES('jose','asd','jose@gmail.com');
 INSERT INTO usuarios(loginUsuario,senhaUsuario,emailUsuario) VALUES('uelinton','asd','uelinton@gmail.com');
 
-INSERT INTO produtos(nomeProduto,valorProduto,imgProduto) VALUES('RTX 4060 OC GIGABYTE',1689.99,'rtx3060.png','/rtx3060');
-INSERT INTO produtos(nomeProduto,valorProduto,imgProduto) VALUES('PC Ryzen 5 5500 16GB RTX4060 SSD1TB',7568.99,'pc2.png','/pc2');
-INSERT INTO produtos(nomeProduto,valorProduto,imgProduto) VALUES('PC Ryzen 5 4600G 16GB RX6600 SSD1TB',5568.99,'pc_montado_1.png','/pc_montado_1');
-INSERT INTO produtos(nomeProduto,valorProduto,imgProduto) VALUES('PC Intel i7 14700 32GB RTX4060 SSD1TB',7568.99,'pc_montado_2.png','/pc_montado_2');
-INSERT INTO produtos(nomeProduto,valorProduto,imgProduto) VALUES('PC Ryzen 9 8950X3D 64GB RTX5090 SSD1TB',10568.99,'pc_montado_3.png','/pc_montado_3');
+INSERT INTO produtos(nomeProduto,valorProduto,imgProduto,linkProduto) VALUES('RTX 4060 OC GIGABYTE',1689.99,'rtx3060.png','http://localhost:8080/PRIME.AI/produtos/rtx3060.jsp');
+INSERT INTO produtos(nomeProduto,valorProduto,imgProduto,linkProduto) VALUES('PC Ryzen 5 5500 16GB RTX4060 SSD1TB',7568.99,'pc2.png','http://localhost:8080/PRIME.AI/produtos/pc2.jsp');
+INSERT INTO produtos(nomeProduto,valorProduto,imgProduto,linkProduto) VALUES('PC Ryzen 5 4600G 16GB RX6600 SSD1TB',5568.99,'pc_montado_1.png','http://localhost:8080/PRIME.AI/produtos/pc_montado_1.jsp');
+INSERT INTO produtos(nomeProduto,valorProduto,imgProduto,linkProduto) VALUES('PC Intel i7 14700 32GB RTX4060 SSD1TB',7568.99,'pc_montado_2.png','http://localhost:8080/PRIME.AI/produtos/pc_montado_2.jsp');
+INSERT INTO produtos(nomeProduto,valorProduto,imgProduto,linkProduto) VALUES('PC Ryzen 9 8950X3D 64GB RTX5090 SSD1TB',10568.99,'pc_montado_3.png','http://localhost:8080/PRIME.AI/produtos/pc_montado_3.jsp');
 
-INSERT INTO benchmark VALUES (3,'GTA VI','FULLHD','Médio',120);
-INSERT INTO benchmark VALUES (4,'GTA VI','2.5K','Alto',90);
-INSERT INTO benchmark VALUES (5,'GTA VI','4K','Ultra',120);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (3,'Fortnite','FULLHD','Médio',120);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (4,'Fortnite','2.5K','Alto',60);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (5,'Fortnite','4K','Ultra',75);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (3,'God of War','FULLHD','Baixo',54);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (4,'God of War','2.5K','Alto',70);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (5,'God of War','4K','Ultra',90);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (3,'GTA VI','FULLHD','Médio',48);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (4,'GTA VI','2.5K','Alto',60);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (5,'GTA VI','4K','Ultra',80);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (3,'League of Legends','FULLHD','Alto',120);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (4,'League of Legends','2.5K','Ultra',180);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (5,'League of Legends','4K','Ultra',240);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (3,'Terraria','FULLHD','Alto',90);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (4,'Terraria','2.5K','Alto',120);
+INSERT INTO benchmark(idProduto,jogoBench,resolucaoBench,qualidadeBench,fpsBench) VALUES (5,'Terraria','4K','Alto',180);
 
 INSERT INTO carrinho VALUES (1,1,3);
 INSERT INTO carrinho VALUES (2,1,1);
 INSERT INTO carrinho VALUES (3,2,1);
 INSERT INTO carrinho VALUES (4,2,2);
-
-
 
 
