@@ -43,7 +43,7 @@ public class CompletionServlet extends HttpServlet {
                             data.put("messages", new JSONArray()
                                 .put(new JSONObject()
                                     .put("role", "user")
-                                    .put("content", prompt)
+                                    .put("content", "ola")
                                 )
                             );
                     data.put("max_tokens", 8000);
