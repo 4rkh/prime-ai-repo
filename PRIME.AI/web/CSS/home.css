@@ -170,23 +170,6 @@ main {
     font-weight: normal;
 }
 
-.buy-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: red; /* Red color */
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 15px;
-    transition: background-color 0.15s;
-}
-
-.buy-button:hover {
-    background-color: #6d0404;
-}
-
 @media (max-width: 768px) {
     .top-bar {
         flex-direction: column;
@@ -371,4 +354,30 @@ main {
 /* Remove contorno ao clicar na imagem */
 .search-button img:focus {
     outline: none; /* Garante que a imagem também não receba contorno */
+}
+.buy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #cccccc;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.15s;
+    border: 5px;
+    cursor: pointer;
+}
+
+.buy-button img {
+    width: 60%;
+    height: auto;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+.buy-button:hover {
+    background-color: #6d0404;
 }
