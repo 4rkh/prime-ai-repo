@@ -54,18 +54,18 @@
             <div class="promotions-grid">
                 <% for (int i = 0; i < 6; i++) {%>
                 <div>
-                    <a href="href=<%=request.getContextPath()%>/produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd1%>" alt="Produto"></a>
+                    <a href="produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd1%>" alt="Produto"></a>
                     <p><%=nomeProd1%></p>
                     <p>R$ <%=valorProd1%> <span>50% OFF</span></p>
-                    <a href="href=<%=request.getContextPath()%>/produtos.jsp" class="buy-button">Comprar</a>
+                    <a href="produtos.jsp" class="buy-button">Comprar</a>
                 </div>
                 <% }%>
                 <% for (int i = 0; i < 6; i++) {%>
                 <div>
-                    <a href="href=<%=request.getContextPath()%>/produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd2%>" alt="Produto"></a>
+                    <a href="produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd2%>" alt="Produto"></a>
                     <p><%=nomeProd2%></p>
                     <p>R$ <%=valorProd2%> <span>50% OFF</span></p>
-                    <a href="href=<%=request.getContextPath()%>/produtos.jsp" class="buy-button">Comprar</a>
+                    <a href="produtos.jsp" class="buy-button">Comprar</a>
                 </div>
                 <% }%>
             </div>
