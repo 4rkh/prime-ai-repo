@@ -41,7 +41,7 @@
                     <p>PCs Montados</p>
                 </div>
                 <div>
-                    <a href="montagempc.jsp"><img src="<%=request.getContextPath()%>/images/montepc.png" alt="Monte seu PC"></a>
+                    <a href="produtos.jsp"><img src="<%=request.getContextPath()%>/images/montepc.png" alt="Monte seu PC"></a>
                     <p>Monte seu PC</p>
                 </div>
                 <div>
