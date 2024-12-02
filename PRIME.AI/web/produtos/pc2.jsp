@@ -2,12 +2,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DB_Package.OperacoesBD"%>
 <% OperacoesBD busca = new OperacoesBD();
-    String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
-    String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
-    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);    
+    String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 2);
+    String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto",2);
+    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 2);    
 %>
-<!DOCTYPE html>
-
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -202,7 +200,7 @@
         <link rel="stylesheet" href="home.css">
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/menuUnido.jspf" %>
+        <%@include file="../WEB-INF/jspf/menuUnido.jspf" %>
         <div class="container">
             <!-- Seção de Imagens -->
             <div class="left-section">
@@ -292,7 +290,7 @@
                 %>
             </div>
         </div>
-        <%@include file="WEB-INF/jspf/rodape.jspf" %>
+                <%@include file="../WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>
 

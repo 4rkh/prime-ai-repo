@@ -4,9 +4,12 @@
     String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
     String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
     String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);
+    String linkProd1 = busca.buscarAtributo("produtos", "linkProduto", "idProduto", 1);
+    
     String nomeProd2 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 2);
     String valorProd2 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 2);
     String imgProd2 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 2);
+    String linkProd2 = busca.buscarAtributo("produtos", "linkProduto", "idProduto", 2);
 %>
 
 <!DOCTYPE html>
@@ -57,7 +60,7 @@
                     <a href="produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd1%>" alt="Produto"></a>
                     <p><%=nomeProd1%></p>
                     <p>R$ <%=valorProd1%> <span>50% OFF</span></p>
-                    <a href="produtos.jsp" class="buy-button">Comprar</a>
+                    <a href="<%=request.getContextPath()%>/produtos<%=linkProd1%>.jsp" class="buy-button">Comprar</a>
                 </div>
                 <% }%>
                 <% for (int i = 0; i < 6; i++) {%>
@@ -65,7 +68,7 @@
                     <a href="produtos.jsp"><img src="<%=request.getContextPath()%>/images/<%=imgProd2%>" alt="Produto"></a>
                     <p><%=nomeProd2%></p>
                     <p>R$ <%=valorProd2%> <span>50% OFF</span></p>
-                    <a href="produtos.jsp" class="buy-button">Comprar</a>
+                    <a href="<%=request.getContextPath()%>/produtos<%=linkProd2%>.jsp" class="buy-button">Comprar</a>
                 </div>
                 <% }%>
             </div>
