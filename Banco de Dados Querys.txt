@@ -6,12 +6,21 @@ CREATE TABLE usuarios(
 );
 
 CREATE TABLE produtos(
-	idProduto INT PRIMARY KEY,
-	nomeProduto VARCHAR(100),
-	valorProduto NUMERIC(11,2),
-	imgProduto VARCHAR(100)	
+idProduto INT GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nomeProduto VARCHAR(100),
+valorProduto NUMERIC(11,2),
+imgProduto VARCHAR(100),
+CONSTRAINT produtopk PRIMARY KEY (idProduto, valorProduto)
 );
 
-INSERT INTO produtos VALUES(1,'RTX 4060 OC GIGABYTE',1689.99,'rtx3060.png');
-INSERT INTO produtos VALUES(2,'PC Ryzen 7900X 32GB RTX4080 SSD1TB',7568.99,'pc_montado_2.png');
-	
+INSERT INTO produtos (nomeProduto, valorProduto,imgProduto) VALUES('RTX 4060 OC GIGABYTE',1689.99,'rtx3060.png');
+INSERT INTO produtos (nomeProduto, valorProduto,imgProduto) VALUES('PC Ryzen 7900X 32GB RTX4080 SSD1TB',7568.99,'pc_montado_2.png');
+
+CREATE table carrinho(
+    idProduto INT,
+    idUsuario INT,
+    quantProduto NUMERIC,
+    valorProduto NUMERIC (11,2),
+    CONSTRAINT produtofk FOREIGN KEY (idProduto, valorProduto) REFERENCES produtos (idProduto, valorProduto),
+    CONSTRAINT usuariofk FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario)
+);

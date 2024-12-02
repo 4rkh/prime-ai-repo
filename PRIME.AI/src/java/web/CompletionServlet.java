@@ -39,14 +39,14 @@ public class CompletionServlet extends HttpServlet {
                 try{
                     String prompt = request.getParameter("prompt");
                     JSONObject data = new JSONObject();
-                            data.put("model", "gpt-3.5-turbo");
+                            data.put("model", "llama-3.1-70b-versatile");
                             data.put("messages", new JSONArray()
                                 .put(new JSONObject()
                                     .put("role", "user")
-                                    .put("content", prompt)
+                                    .put("content", "ola")
                                 )
                             );
-                    data.put("max_tokens", 4000);
+                    data.put("max_tokens", 8000);
                     data.put("temperature", 1.0);
                     JSONObject completion = DevOpenAI.getCompletion(data);
                     out.print(completion.toString());

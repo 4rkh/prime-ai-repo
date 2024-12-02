@@ -3,10 +3,10 @@
 <% OperacoesBD busca = new OperacoesBD();
     String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
     String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
-    String imgProd1 = busca.buscarAtributo("produtos", "imagemProduto", "idProduto", 1);
+    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);
     String nomeProd2 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 2);
     String valorProd2 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 2);
-    String imgProd2 = busca.buscarAtributo("produtos", "imagemProduto", "idProduto", 2);
+    String imgProd2 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 2);
 %>
 
 <!DOCTYPE html>

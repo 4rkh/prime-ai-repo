@@ -4,7 +4,7 @@
 <%
     if (request.getParameter("invoke") != null) {
         try {
-            String prompt = request.getParameter("prompt");
+            String prompt = "ola";
             String completion = DevOpenAI.getCompletion(prompt);
             request.setAttribute("completion", completion);
         } catch (Exception ex) {
