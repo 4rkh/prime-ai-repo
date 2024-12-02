@@ -66,6 +66,32 @@
                 font-size: 12px;
                 color: red;
             }
+            .buy-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                background-color: #cccccc;
+                color: white;
+                border-radius: 50%;
+                text-decoration: none;
+                transition: background-color 0.15s;
+                border: 5px;
+                cursor: pointer;
+            }
+
+            .buy-button img {
+                width: 60%;
+                height: auto;
+                display: block;
+                border: none;
+                outline: none;
+            }
+
+            .buy-button:hover {
+                background-color: #6d0404;
+            }
         </style>
     </head>
     <body>
@@ -94,6 +120,7 @@
                     <p class="product-title">GEFORCE RTX 4060 TI</p>
                     <p class="product-price">R$ 1449,99</p>
                     <p class="product-discount">50% OFF</p>
+                    <a href="produtosolo.jsp"><button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Comprar</button></a>
                 </div>
                 <!-- Repita o card de produto conforme necessário -->
                 <!-- Exemplo de duplicação -->
@@ -103,12 +130,14 @@
                     <p class="product-title">PC Ryzen 7900X 32GB RTX4080 SSD1TB</p>
                     <p class="product-price">R$ 7568,99</p>
                     <p class="product-discount">25% OFF</p>
+                    <a href="produtosolo.jsp"><button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Comprar</button></a>
                 </div>
                 <div class="product-card">
                     <img src="images/rtx3060.png" alt="GEFORCE RTX 4060">
                     <p class="product-title">GEFORCE RTX 4060 TI</p>
                     <p class="product-price">R$ 1449,99</p>
                     <p class="product-discount">50% OFF</p>
+                    <a href="produtosolo.jsp"><button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Comprar</button></a>
                 </div>
                 <% }%>
             </div>

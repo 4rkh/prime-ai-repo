@@ -35,7 +35,7 @@
                         <!-- Item do Carrossel -->
                         <% for (int i = 0; i < 15; i++) { %>
                         <div style="text-align: center; min-width: 150px;">
-                            <img src="images/icone_produto.png" alt="GPU" style="width: 100px; height: auto;">
+                            <img src="images/rtx3060.png" alt="GPU" style="width: 100px; height: auto;">
                             <p>GEFORCE RTX 4060</p>
                             <p>R$ 2899,99</p>
                             <button style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Adicionar</button>
