@@ -55,7 +55,7 @@
     </head>
     <body>
         <main>
-            <div><%@include file="WEB-INF/jspf/menuSuperior.jspf"%></div>
+            <div><%@include file="WEB-INF/jspf/menuUnido.jspf"%></div>
             <div class="container">
                 
                 <h2>Registro</h2>

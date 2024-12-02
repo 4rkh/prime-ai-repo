@@ -64,7 +64,7 @@
         <link rel="stylesheet" type="text/css" href="CSS/registro.css"/>
     </head>
     <body>
-        <div><%@include file="WEB-INF/jspf/menuSuperior.jspf"%></div>
+        <div><%@include file="WEB-INF/jspf/menuUnido.jspf"%></div>
         <main>
             <div class="container">
                 <h2>Login</h2>

@@ -15,7 +15,7 @@
     </head>
     <body>
         <div>
-            <%@include file="WEB-INF/jspf/menuTeste.jspf" %>
+            <%@include file="WEB-INF/jspf/menuUnido.jspf" %>
         </div>
         <div style="width: 80%; margin: 0 auto; font-family: Arial, sans-serif;">
             <h1 style="text-align: center;">Monte seu PC</h1>

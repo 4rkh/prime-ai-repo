@@ -36,10 +36,7 @@
     </head>
     <body>
         <main>
-            <!-- Menu superior -->
-            <div><%@include file="WEB-INF/jspf/menuSuperior.jspf" %></div>
-            <!-- Menu de Categorias -->
-            <div class="menu-container"><%@include file="WEB-INF/jspf/menuAcessoRapido.jspf" %></div>
+            <div><%@include file="WEB-INF/jspf/menuUnido.jspf" %></div>
             <div class="redirect" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
                 <h1 style="<%=cor%>"> <%=texto%> </h1>
                 <form action="<%=request.getContextPath()%>/<%=destino%>" method="get"><button type="submit">Redirecionar</button></form>
