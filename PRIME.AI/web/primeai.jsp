@@ -9,7 +9,7 @@
             + request.getParameter("jogo") +"' , '"
             + request.getParameter("resolucao") +"' , '"
             + request.getParameter("qualidade") +"' , '"
-            + request.getParameter("fps") +"' , responda SOMENTE com o link do produto transformado em um hyperlink e 'Este é o Computador que você precisa para rodar "+request.getParameter("jogo")+" nas configurações especificadas.'e não uso o ID do produto, use o nome do produto na tabela 'produtos'";
+            + request.getParameter("fps") +"' , Não coloque a análise das tabelas na resposta, apenas a mensagem 'Este é o Computador que você precisa para rodar "+request.getParameter("jogo")+" nas configurações especificadas.' com o hyperlink do produto vinculado à esta.";
             String completion = DevOpenAI.getCompletion(prompt);
             request.setAttribute("completion", completion);
         } catch (Exception ex) {
