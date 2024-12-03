@@ -42,3 +42,4 @@ nbactions.xml
 nb-configuration.xml
 /PRIME.AI/nbproject/private/
 >>>>>>> Stashed changes
+!/PRIME.AI/web/WEB-INF/web.xml
