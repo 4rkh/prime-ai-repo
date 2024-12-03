@@ -9,7 +9,7 @@
             + request.getParameter("jogo") +"' , '"
             + request.getParameter("resolucao") +"' , '"
             + request.getParameter("qualidade") +"' , '"
-            + request.getParameter("fps") +"' , Não coloque a análise das tabelas na resposta, apenas a mensagem 'Este é o Computador que você precisa para rodar "+request.getParameter("jogo")+" nas configurações especificadas.' com o hyperlink do produto vinculado à esta.";
+            + request.getParameter("fps") +"' , Coloque apenas a mensagem 'Este é o Computador que você precisa para rodar "+request.getParameter("jogo")+" nas configurações especificadas.' com o hyperlink do produto vinculado à esta.";
             String completion = DevOpenAI.getCompletion(prompt);
             request.setAttribute("completion", completion);
         } catch (Exception ex) {
