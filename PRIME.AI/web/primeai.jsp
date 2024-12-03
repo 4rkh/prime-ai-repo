@@ -16,6 +16,12 @@
             request.setAttribute("error", ex.getMessage());
         }
     }
+    
+    String prompt = (String) session.getAttribute("prompt");
+    session.setAttribute("prompt","'"+request.getParameter("jogo") +"' , '"
+            + request.getParameter("resolucao") +"' , '"
+            + request.getParameter("qualidade") +"' , '"
+            + request.getParameter("fps"));
 %>
 <html lang="pt-br">
     <head>
@@ -122,22 +128,6 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
             }
-
-            .buy-button {
-                margin-top: 10px;
-                padding: 8px 12px;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-
-            .buy-button:hover {
-                background-color: #45a049;
-            }
-
             /* Alinhamento */
             form.selec-prompt div {
                 display: flex;
@@ -158,7 +148,7 @@
                 <hr/>
                 <% } else if (request.getAttribute("completion") != null) {%>
                 <h2>Pergunta:</h2>
-                <div><%= request.getParameter("prompt")%></div>
+                <div><%=prompt%></div>
                 <h2>Resposta:</h2>
                 <div class="output"><%= request.getAttribute("completion")%></div>
                 <hr/>

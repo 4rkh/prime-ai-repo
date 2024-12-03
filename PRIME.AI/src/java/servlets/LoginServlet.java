@@ -24,16 +24,16 @@ public class LoginServlet extends HttpServlet {
             if (busca.buscarLogin(login) != null && senha.equals(busca.buscarSenhaLogin(login))) {
                 session.setAttribute("check", null); // Login bem-sucedido
                 session.setAttribute("usuario", login); // Salva o usuário logado
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("http://localhost:8080/PRIME.AI/home.jsp");
             } else {
                 // Login ou senha inválidos
                 session.setAttribute("check", "error");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("http://localhost:8080/PRIME.AI/login.jsp");
             }
         } catch (Exception e) {
             e.printStackTrace();
             session.setAttribute("check", "error");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("http://localhost:8080/PRIME.AI/login.jsp");
         }
     }
 }

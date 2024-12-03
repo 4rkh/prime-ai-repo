@@ -1,43 +1,45 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%
+%>
 <style>
     body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ababab;
-    color: #333;
-    line-height: 1.6;
-}
+        font-family: 'Arial', sans-serif;
+        background-color: #ababab;
+        color: #333;
+        line-height: 1.6;
+    }
     .top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #333;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #333;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.top-bar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+    .top-bar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
 
-.top-bar a:hover {
-    color: red;
-}
+    .top-bar a:hover {
+        color: red;
+    }
 
-.logo img {
-    max-width: 200px;
-    height: auto;
-}
+    .logo img {
+        max-width: 200px;
+        height: auto;
+    }
     .menu-container {
         width: 80%; /* Define uma largura fixa (ajustável) */
         margin: 20px auto; /* Centraliza horizontalmente e adiciona espaço superior */
@@ -196,36 +198,62 @@
     .search-button img:focus {
         outline: none; /* Garante que a imagem também não receba contorno */
     }
-.cart-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; 
-    height: 50px; 
-    background-color: #cccccc; 
-    color: white;
-    border-radius: 50%; 
-    text-decoration: none;
-    transition: background-color 0.15s;
-    border: 5px; 
-    cursor: pointer; 
-}
+    .cart-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: #cccccc;
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: background-color 0.15s;
+        border: 5px;
+        cursor: pointer;
+    }
 
-.cart-button img {
-    width: 60%; 
-    height: auto;
-    display: block; 
-    border: none;
-    outline: none;
-}
+    .cart-button img {
+        width: 60%;
+        height: auto;
+        display: block;
+        border: none;
+        outline: none;
+    }
 
-.cart-button:hover {
-    background-color: #6d0404; 
-}
+    .cart-button:hover {
+        background-color: #6d0404;
+    }
+     .logged{
+        display: flex; /* Define layout flexível */
+        align-items: center; /* Alinha verticalmente os itens */
+        gap: 10px; /* Espaçamento entre os elementos */
+
+    }
+     .logged img {
+        width: 80px; /* Define a largura da imagem */
+        height: 80px; /* Define a altura da imagem */
+        border-radius: 50%; /* Torna a imagem circular (opcional) */
+
+    }
+
+    .logged button {
+        padding: 10px 20px; /* Espaçamento interno no botão */
+        font-size: 16px; /* Tamanho da fonte */
+        background-color: #cccccc; /* Cor de fundo */
+        color: black; /* Cor do texto */
+        border: none; /* Remove a borda */
+        border-radius: 5px; /* Bordas arredondadas */
+        cursor: pointer; /* Cursor muda para "mãozinha" */
+    }
+
+    .logged button:hover {
+        background-color: #6d0404; /* Cor de fundo ao passar o mouse */
+    }
 </style>
 <div class="top-bar">
     <div class="logo">
-        <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
+        <a href="<%=request.getContextPath()%>/home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
     </div>
     <div class="search-container">
         <form class="search-form" action="<%=request.getContextPath()%>/produtos.jsp>">
@@ -235,11 +263,18 @@
             </button>
         </form>
     </div>
-            <form action="carrinho.jsp"><button class="cart-button" type="submit"><img src="<%=request.getContextPath()%>/images/cart.png" /></button></form>
+    <form action="<%=request.getContextPath()%>/carrinho.jsp"><button class="cart-button" type="submit"><img src="<%=request.getContextPath()%>/images/cart.png" /></button></form>
+            <% if (session.getAttribute("usuario") == "deslogado") {%>
     <div class="auth-links">
-        <a href="registro.jsp">Registrar-se</a>
-        <a href="login.jsp">Login</a>
+        <a href="<%=request.getContextPath()%>/registro.jsp">Registrar-se</a>
+        <a href="<%=request.getContextPath()%>/login.jsp">Login</a>
     </div>
+    <%} else {%>
+    <div class="logged">
+        <a><image src="<%=request.getContextPath()%>/images/avatar.png"></a>
+        <form action="deslogar" method="post"><button type="submit">Sair</button></form>
+    </div>
+    <%}%>
 </div>
 <div class="menu-container">
     <ul class="menu">

@@ -76,48 +76,35 @@ public class OperacoesBD extends HttpServlet {
     }
 
     public static String buscarEmail(String email) throws Exception {
-        // Query SQL com um placeholder para o parâmetro
         String query = "SELECT emailUsuario FROM usuarios WHERE emailUsuario = ?";
 
-        // Tentativa de conexão com o banco de dados
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            // Define o valor do parâmetro (substitui o ? pela variável login)
             stmt.setString(1, email);
 
-            // Executa a consulta e obtém o resultado
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    // Retorna o login encontrado
                     return rs.getString("emailUsuario");
                 }
             } catch (Exception quer) {
                 System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
                 quer.printStackTrace();
             }
-
         } catch (Exception ex) {
             System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
             ex.printStackTrace();
-        }
-        // Retorna null se o login não for encontrado
+        }     
         return null;
     }
 
     public static String buscarSenhaLogin(String login) throws Exception {
-        // Query SQL com um placeholder para o parâmetro
         String query = "SELECT senhaUsuario FROM usuarios WHERE loginUsuario = ?";
 
-        // Tentativa de conexão com o banco de dados
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            // Define o valor do parâmetro (substitui o ? pela variável login)
             stmt.setString(1, login);
 
-            // Executa a consulta e obtém o resultado
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    // Retorna o login encontrado
                     return rs.getString("senhaUsuario");
                 }
             } catch (Exception quer) {
@@ -129,7 +116,6 @@ public class OperacoesBD extends HttpServlet {
             System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
             ex.printStackTrace();
         }
-        // Retorna null se o login não for encontrado
         return null;
     }
 

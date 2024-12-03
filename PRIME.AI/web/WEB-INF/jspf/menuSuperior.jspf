@@ -1,5 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%String check = (String) session.getAttribute("check");%>
 <style>
     .cart-button {
         display: flex;
@@ -27,10 +28,36 @@
     .cart-button:hover {
         background-color: #6d0404;
     }
+    .logged{
+        display: flex; /* Define layout flexível */
+        align-items: center; /* Alinha verticalmente os itens */
+        gap: 10px; /* Espaçamento entre os elementos */
+
+    }
+    .logged img {
+        width: 80px; /* Define a largura da imagem */
+        height: 80px; /* Define a altura da imagem */
+        border-radius: 50%; /* Torna a imagem circular (opcional) */
+
+    }
+
+    .logged button {
+        padding: 10px 20px; /* Espaçamento interno no botão */
+        font-size: 16px; /* Tamanho da fonte */
+        background-color: #cccccc; /* Cor de fundo */
+        color: black; /* Cor do texto */
+        border: none; /* Remove a borda */
+        border-radius: 5px; /* Bordas arredondadas */
+        cursor: pointer; /* Cursor muda para "mãozinha" */
+    }
+
+    .logged button:hover {
+        background-color: #6d0404; /* Cor de fundo ao passar o mouse */
+    }
 </style>
 <div class="top-bar">
     <div class="logo">
-        <a href="home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
+        <a href="<%=request.getContextPath()%>/home.jsp"><img src="<%=request.getContextPath()%>/images/logo_sem_fundo.png" alt="Logo"></a>
     </div>
     <div class="search-container">
         <form class="search-form" action="<%=request.getContextPath()%>/produtos.jsp>">
@@ -40,10 +67,18 @@
             </button>
         </form>
     </div>
-    <a href="carrinho.jsp"><button class="cart-button"><img src="images/cart.png" /></button></a>
+    <form action="<%=request.getContextPath()%>/carrinho.jsp"><button class="cart-button" type="submit"><img src="<%=request.getContextPath()%>/images/cart.png" /></button></form>
+
+    <% if (session.getAttribute("usuario") == "deslogado") {%>
     <div class="auth-links">
-        <a href="registro.jsp">Registrar-se</a>
-        <a href="login.jsp">Login</a>
+        <a href="<%=request.getContextPath()%>/registro.jsp">Registrar-se</a>
+        <a href="<%=request.getContextPath()%>/login.jsp">Login</a>
     </div>
+    <%} else {%>
+    <div class="logged">
+        <a><image src="<%=request.getContextPath()%>/images/avatar.png"></a>
+        <form action="deslogar" method="post"><button type="submit">Sair</button></form>
+    </div>
+    <%}%>
 </div>
 

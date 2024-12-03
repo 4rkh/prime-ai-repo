@@ -1,7 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.*"%>  
+<%@page import="DB_Package.OperacoesBD"%>
 <%
-    String check = (String) session.getAttribute("check");
+    String check = (String)session.getAttribute("check");
+    OperacoesBD busca = new OperacoesBD();
+    
+
+        
+
+    
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -87,10 +94,15 @@
                     <div class="error">
                         Login ou senha inválidos. Tente novamente.
                     </div>
-                    <% }%>
+                    <% }
+                        if(busca.buscarLogin(request.getParameter("login")) != null && busca.buscarSenhaLogin(request.getParameter("senha")) != null ){
+                        session.setAttribute("check","logado");
+                        response.sendRedirect("http://localhost:8080/PRIME.AI/home.jsp");
+                    }%>
+                    
                 </form>
             </div>
         </main>
-                 <%@include file="WEB-INF/jspf/rodape.jspf" %>
+        <%@include file="WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>

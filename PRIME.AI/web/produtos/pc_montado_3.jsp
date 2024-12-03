@@ -3,17 +3,17 @@
 <%@page import="DB_Package.OperacoesBD"%>
 <% OperacoesBD busca = new OperacoesBD();
     String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 5);
-    float valorProd1 = Float.parseFloat(busca.buscarAtributo("produtos", "valorProduto", "idProduto",5));
-    float valor2Prod1 = valorProd1*2;
+    float valorProd1 = Float.parseFloat(busca.buscarAtributo("produtos", "valorProduto", "idProduto", 5));
+    float valor2Prod1 = valorProd1 * 2;
     float valor3Prod1 = valorProd1 / 12;
-    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 5); 
-    
+    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 5);
+
     String nomeProd2 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 3);
     String valorProd2 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 3);
-    String imgProd2 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 3);  
+    String imgProd2 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 3);
     String nomeProd3 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
     String valorProd3 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
-    String imgProd3 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);  
+    String imgProd3 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);
 %>
 <html lang="pt-br">
     <head>
@@ -205,6 +205,16 @@
             .buy-button:hover {
                 background-color: darkred;
             }
+            .stars{
+                display: flex; /* Define layout flexível */
+                align-items: center; /* Alinha verticalmente os itens */
+
+            }
+            .stars img{
+                height: 80%;
+                width: 80%;
+            }
+
         </style>
         <link rel="stylesheet" href="home.css">
     </head>
@@ -252,7 +262,11 @@
                 <div class="rating-section">
                     <p>Nota:</p>
                     <div class="stars">
-                        ?????
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>  
                     </div>
                     <p>Avaliado por 1250 usuários</p>
                 </div>
@@ -299,7 +313,7 @@
                 %>
             </div>
         </div>
-                <%@include file="../WEB-INF/jspf/rodape.jspf" %>
+        <%@include file="../WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>
 
