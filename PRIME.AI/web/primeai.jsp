@@ -187,7 +187,15 @@
                     </div>
                     <div>
                         <strong>FPS</strong>
-                        <input type="text" name="fps" required="" placeholder="Digite o FPS...">
+                        <select name="fps" id="fps" required="">
+                            <option value="" disabled selected>Escolha a qualidade</option>
+                            <option value="30">30 FPS</option>
+                            <option value="60">60 FPS</option>
+                            <option value="90">90 FPS</option>
+                            <option value="120">120 FPS</option>
+                            <option value="150">150 FPS</option>
+                            <option value="180">180 FPS</option>
+                        </select>
                     </div>
                     <button type="submit" class="prompt-button" name="invoke">Enviar</button>
                 </form>
