@@ -142,23 +142,24 @@
         <%@include file="WEB-INF/jspf/menuUnido.jspf" %>
         <main>
             <div class="chat-container">
-                <h1>PRIME.AI</h1>
+                <h1>PRIME.AI</h1>                
+                <h3>Selecione o jogo, a resolução , qualidade e o FPS desejado qua a nossa IA te indicará o PC que você precisa para rodar estas especificações.</h3>
                 <% if (request.getAttribute("error") != null) {%>
                 <div style="color: red;">ERRO: <%= request.getAttribute("error")%></div>
                 <hr/>
+                
                 <% } else if (request.getAttribute("completion") != null) {%>
-                <div><%=prompt%></div>
                 <div class="output"><%= request.getAttribute("completion")%></div>
                 <hr/>
                 <% }%>
 
-                <h3>Selecione o jogo, a resolução , qualidade e o FPS desejado qua a nossa IA te indicará o PC que você precisa para rodar estas especificações.</h3><br>
+                
                 <form class="selec-prompt" method="get">
                     <div>
                         <strong>Jogo</strong>
                         <select name="jogo" id="jogo" required="">
                             <option value="" disabled selected>Escolha um jogo</option>
-                            <option value="Fortinite">Fortinite</option>
+                            <option value="Fortnite">Fortnite</option>
                             <option value="God of War">God of War</option>
                             <option value="GTA VI">GTA VI</option>
                             <option value="League of Legends">League of Legends</option>
