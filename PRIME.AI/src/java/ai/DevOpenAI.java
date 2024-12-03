@@ -54,7 +54,7 @@ public class DevOpenAI {
                 )
         );
         data.put("max_tokens", 8000);
-        data.put("temperature", 1.0);
+        data.put("temperature", 0.1);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI("https://api.groq.com/openai/v1/chat/completions"))

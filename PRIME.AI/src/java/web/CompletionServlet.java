@@ -47,7 +47,7 @@ public class CompletionServlet extends HttpServlet {
                                 )
                             );
                     data.put("max_tokens", 8000);
-                    data.put("temperature", 1.0);
+                    data.put("temperature", 0.1);
                     JSONObject completion = DevOpenAI.getCompletion(data);
                     out.print(completion.toString());
                 }catch(Exception ex){
