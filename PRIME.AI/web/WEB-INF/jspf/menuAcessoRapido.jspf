@@ -37,7 +37,7 @@
             <a href="<%=request.getContextPath()%>/montagempc.jsp">MONTE SEU PC</a>
         </li>
         <li>
-            <a href="<%=request.getContextPath()%>/primeai.jsp">PRIME GPT</a>
+            <a href="<%=request.getContextPath()%>/primeai.jsp">PRIME AI</a>
         </li>
     </ul>
 </div>

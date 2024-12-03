@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import jakarta.servlet.http.HttpServlet;
 
-public class OperacoesBD {
+public class OperacoesBD extends HttpServlet {
 
     private static final String URL = "jdbc:derby://localhost:1527/primedb";
     private static final String USER = "usuario";
@@ -36,7 +37,7 @@ public class OperacoesBD {
             stmt.setString(1, login);
             stmt.setString(2, senha);
             stmt.setString(3, email);
-            
+
             // Executando a atualização (inserção)
             int rowsAffected = stmt.executeUpdate();
             // Se a inserção foi bem-sucedida (rowsAffected > 0), você pode retornar o login inserido
@@ -49,87 +50,110 @@ public class OperacoesBD {
         return null; // Retorna null se nada for encontrado
     }
 
-public static String buscarLogin(String login) throws Exception {
-    String query = "SELECT loginUsuario FROM usuarios WHERE loginUsuario = ?";
-    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-         PreparedStatement stmt = conn.prepareStatement(query)) {
-        // Define o valor do parâmetro (substitui o ? pela variável login)
-        stmt.setString(1, login);
-        // Executa a consulta e obtém o resultado
-        try (ResultSet rs = stmt.executeQuery()) {
-            if (rs.next()) {
-                // Retorna o login encontrado
-                return rs.getString("loginUsuario");
+    public static String buscarLogin(String login) throws Exception {
+        String query = "SELECT loginUsuario FROM usuarios WHERE loginUsuario = ?";
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
+            // Define o valor do parâmetro (substitui o ? pela variável login)
+            stmt.setString(1, login);
+            // Executa a consulta e obtém o resultado
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Retorna o login encontrado
+                    return rs.getString("loginUsuario");
+                }
+            } catch (Exception quer) {
+                System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
+                quer.printStackTrace();
             }
-        } catch (Exception quer) {
-            System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
-            quer.printStackTrace();
+
+        } catch (Exception ex) {
+            System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
+            ex.printStackTrace();
         }
 
-    } catch (Exception ex) {
-        System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
-        ex.printStackTrace();
+        // Retorna null se o login não for encontrado
+        return null;
     }
 
-    // Retorna null se o login não for encontrado
-    return null;
-}
-public static String buscarEmail(String email) throws Exception {
-    // Query SQL com um placeholder para o parâmetro
-    String query = "SELECT emailUsuario FROM usuarios WHERE emailUsuario = ?";
+    public static String buscarEmail(String email) throws Exception {
+        String query = "SELECT emailUsuario FROM usuarios WHERE emailUsuario = ?";
 
-    // Tentativa de conexão com o banco de dados
-    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-         PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
 
-        // Define o valor do parâmetro (substitui o ? pela variável login)
-        stmt.setString(1, email);
-
-        // Executa a consulta e obtém o resultado
-        try (ResultSet rs = stmt.executeQuery()) {
-            if (rs.next()) {
-                // Retorna o login encontrado
-                return rs.getString("emailUsuario");
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("emailUsuario");
+                }
+            } catch (Exception quer) {
+                System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
+                quer.printStackTrace();
             }
-        } catch (Exception quer) {
-            System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
-            quer.printStackTrace();
+        } catch (Exception ex) {
+            System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
+            ex.printStackTrace();
+        }     
+        return null;
+    }
+
+    public static String buscarSenhaLogin(String login) throws Exception {
+        String query = "SELECT senhaUsuario FROM usuarios WHERE loginUsuario = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, login);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("senhaUsuario");
+                }
+            } catch (Exception quer) {
+                System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
+                quer.printStackTrace();
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String obterTabela(String tabela) throws Exception {
+        
+        StringBuilder resultado = new StringBuilder();
+
+        // Query para selecionar todos os dados da tabela
+        String query = "SELECT * FROM " + tabela;
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            // Obter metadados da tabela
+            int columnCount = rs.getMetaData().getColumnCount();
+
+            // Adicionar cabeçalho da tabela
+            resultado.append("Tabela: ").append(tabela).append("\n");
+            for (int i = 1; i <= columnCount; i++) {
+                resultado.append(rs.getMetaData().getColumnName(i)).append("\t");
+            }
+            resultado.append("\n-------------------------------------------\n");
+
+            // Iterar sobre os resultados
+            while (rs.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    resultado.append(rs.getString(i)).append("\t");
+                }
+                resultado.append("\n");
+            }
+
+        } catch (Exception ex) {
+            resultado.append("Erro ao acessar os dados: ").append(ex.getMessage()).append("\n");
+            throw ex; // Repassa a exceção para ser tratada, se necessário
         }
 
-    } catch (Exception ex) {
-        System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
-        ex.printStackTrace();
+        return resultado.toString();
     }
-    // Retorna null se o login não for encontrado
-    return null;
-}
-public static String buscarSenhaLogin(String login) throws Exception {
-    // Query SQL com um placeholder para o parâmetro
-    String query = "SELECT senhaUsuario FROM usuarios WHERE loginUsuario = ?";
 
-    // Tentativa de conexão com o banco de dados
-    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-         PreparedStatement stmt = conn.prepareStatement(query)) {
-
-        // Define o valor do parâmetro (substitui o ? pela variável login)
-        stmt.setString(1, login);
-
-        // Executa a consulta e obtém o resultado
-        try (ResultSet rs = stmt.executeQuery()) {
-            if (rs.next()) {
-                // Retorna o login encontrado
-                return rs.getString("senhaUsuario");
-            }
-        } catch (Exception quer) {
-            System.out.println("Erro ao processar o ResultSet: " + quer.getMessage());
-            quer.printStackTrace();
-        }
-
-    } catch (Exception ex) {
-        System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
-        ex.printStackTrace();
-    }
-    // Retorna null se o login não for encontrado
-    return null;
-}
 }

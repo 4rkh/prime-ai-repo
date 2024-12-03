@@ -1,11 +1,11 @@
-<%-- 
-    Document   : newjsp
-    Created on : 12 de nov. de 2024, 20:26:38
-    Author     : Nicolete
---%>
-
 <%@page import="com.sun.tools.rngom.ast.builder.Include"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="DB_Package.OperacoesBD"%>
+<% OperacoesBD busca = new OperacoesBD();
+    String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
+    String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
+    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);    
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>

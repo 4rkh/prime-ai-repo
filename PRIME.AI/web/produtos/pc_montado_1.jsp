@@ -2,12 +2,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DB_Package.OperacoesBD"%>
 <% OperacoesBD busca = new OperacoesBD();
-    String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
-    String valorProd1 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
-    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);    
-%>
-<!DOCTYPE html>
+    String nomeProd1 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 3);
+    float valorProd1 = Float.parseFloat(busca.buscarAtributo("produtos", "valorProduto", "idProduto", 3));
+    float valor2Prod1 = valorProd1 * 2;
+    float valor3Prod1 = valorProd1 / 12;
+    String imgProd1 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 3);
 
+    String nomeProd2 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 3);
+    String valorProd2 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 3);
+    String imgProd2 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 3);
+    String nomeProd3 = busca.buscarAtributo("produtos", "nomeProduto", "idProduto", 1);
+    String valorProd3 = busca.buscarAtributo("produtos", "valorProduto", "idProduto", 1);
+    String imgProd3 = busca.buscarAtributo("produtos", "imgProduto", "idProduto", 1);
+%>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -198,22 +205,32 @@
             .buy-button:hover {
                 background-color: darkred;
             }
+
+            .stars{
+                display: flex; /* Define layout flexível */
+                align-items: center; /* Alinha verticalmente os itens */
+
+            }
+            .stars img{
+                height: 80%;
+                width: 80%;
+            }
         </style>
         <link rel="stylesheet" href="home.css">
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/menuUnido.jspf" %>
+        <%@include file="../WEB-INF/jspf/menuUnido.jspf" %>
         <div class="container">
             <!-- Seção de Imagens -->
             <div class="left-section">
-                <h1>GeForce RTX 4060 8GB - Gigabyte</h1>
+                <h1><%=nomeProd1%></h1>
                 <div class="image-gallery">
-                    <img src="images/rtx3060.png" alt="Imagem Principal" class="main-image">
+                    <img src="../images/<%=imgProd1%>" alt="Imagem Principal" class="main-image">
                     <div class="thumbnail-list">
-                        <img src="images/rtx3060.png" alt="Thumbnail 1">
-                        <img src="images/rtx3060.png" alt="Thumbnail 2">
-                        <img src="images/rtx3060.png" alt="Thumbnail 3">
-                        <img src="images/rtx3060.png" alt="Thumbnail 4">
+                        <img src="../images/<%=imgProd1%>" alt="Thumbnail 1">
+                        <img src="../images/<%=imgProd1%>" alt="Thumbnail 2">
+                        <img src="../images/<%=imgProd1%>" alt="Thumbnail 3">
+                        <img src="../images/<%=imgProd1%>" alt="Thumbnail 4">
                     </div>
                 </div>
             </div>
@@ -221,11 +238,11 @@
             <!-- Seção de Detalhes -->
             <div class="right-section">
                 <div class="price-info">
-                    <span class="original-price">R$ 2899,99</span>
+                    <span class="original-price">R$ <%=valor2Prod1%></span>
                     <span class="discount">50%</span>
-                    <span class="current-price">R$ 1449,99</span>
+                    <span class="current-price">R$ <%=valorProd1%></span>
                 </div>
-                <p class="installments">Até 12x de R$ 120,83 sem juros</p>
+                <p class="installments">Até 12x de R$ <%=valor3Prod1%> sem juros</p>
 
                 <form action="calculate.jsp" method="post" class="cep-form">
                     <label for="cep">CEP:</label>
@@ -245,7 +262,11 @@
                 <div class="rating-section">
                     <p>Nota:</p>
                     <div class="stars">
-                        ?????
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>
+                        <a><img src="<%=request.getContextPath()%>/images/estrela.png" alt="alt"/></a>  
                     </div>
                     <p>Avaliado por 1250 usuários</p>
                 </div>
@@ -262,10 +283,10 @@
                     for (int i = 0; i < 6; i++) {
                 %>
                 <div class="product-card">
-                    <img src="images/rtx3060.png" alt="GEFORCE RTX 4060 Ti">
-                    <h3>GEFORCE RTX 4060 Ti</h3>
+                    <img src="../images/<%=imgProd2%>" alt="GEFORCE RTX 4060 Ti">
+                    <h3>G<%=nomeProd2%></h3>
                     <p>Mais descrições do produto</p>
-                    <p class="price">R$ 2899,99</p>
+                    <p class="price">R$ <%=valorProd2%></p>
                     <button class="buy-button">COMPRAR</button>
                 </div>
                 <%
@@ -281,10 +302,10 @@
                     for (int i = 0; i < 6; i++) {
                 %>
                 <div class="product-card">
-                    <img src="images/rtx3060.png" alt="GEFORCE RTX 4060 Ti">
-                    <h3>GEFORCE RTX 4060 Ti</h3>
+                    <img src="../images/<%=imgProd3%>" alt="GEFORCE RTX 4060 Ti">
+                    <h3><%=nomeProd3%></h3>
                     <p>Mais descrições do produto</p>
-                    <p class="price">R$ 2899,99</p>
+                    <p class="price">R$ <%=valorProd3%></p>
                     <button class="buy-button">COMPRAR</button>
                 </div>
                 <%
@@ -292,7 +313,7 @@
                 %>
             </div>
         </div>
-        <%@include file="WEB-INF/jspf/rodape.jspf" %>
+        <%@include file="../WEB-INF/jspf/rodape.jspf" %>
     </body>
 </html>
 
