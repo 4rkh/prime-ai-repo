@@ -244,7 +244,7 @@
                 </div>
                 <p class="installments">Até 12x de R$ <%=valor3Prod1%> sem juros</p>
 
-                <form action="calculate.jsp" method="post" class="cep-form">
+                <form class="cep-form">
                     <label for="cep">CEP:</label>
                     <input type="text" id="cep" name="cep" placeholder="11760-596">
                     <button type="submit">Calcular frete</button>
