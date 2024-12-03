@@ -77,7 +77,7 @@ O projeto é protótipo de um site de um ecommerce de produtos de informática f
 ### Executando o projeto
 - Abra novamente o ``NetBeans``.
 - Quando o aplicativo abrir e tudo acabar de carregar, clique no ícone da Terra, logo acima do nome do projeto, e então escolha o navegador de sua preferência.
-- Depois, clique no nome do projeto (``PRIME AI``), e depois clique com o botão direito no mesmo lugar.
+- Depois, clique no nome do projeto ``PRIME AI``, e depois clique com o botão direito no mesmo lugar.
 - Por fim, clique na opção "Run", e na nova janela, clique em "Permitir acesso".
 
 <br>Quando o projeto abrir, você poderá explorar as funções dele normalmente.
