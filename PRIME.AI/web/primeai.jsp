@@ -147,9 +147,7 @@
                 <div style="color: red;">ERRO: <%= request.getAttribute("error")%></div>
                 <hr/>
                 <% } else if (request.getAttribute("completion") != null) {%>
-                <h2>Pergunta:</h2>
                 <div><%=prompt%></div>
-                <h2>Resposta:</h2>
                 <div class="output"><%= request.getAttribute("completion")%></div>
                 <hr/>
                 <% }%>
